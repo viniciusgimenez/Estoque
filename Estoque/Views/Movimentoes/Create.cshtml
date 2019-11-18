@@ -1,0 +1,66 @@
+﻿@model Estoque.Models.Movimento
+
+@{
+    ViewBag.Title = "Nova Movimentação";
+}
+
+<h2>Cadastrar</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Movimento</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDTIPOMOVIMENTO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IDTIPOMOVIMENTO, (SelectList)ViewBag.TipoMovimento, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDTIPOMOVIMENTO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDPRODUTO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IDPRODUTO, (SelectList)ViewBag.Produto, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDPRODUTO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QUANTIDADE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QUANTIDADE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QUANTIDADE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDUSUARIO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IDUSUARIO, (SelectList)ViewBag.Usuario, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDUSUARIO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" value="Create" class="btn success">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <button class="btn default">
+        @Html.ActionLink("Voltar", "Index")
+    </button>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

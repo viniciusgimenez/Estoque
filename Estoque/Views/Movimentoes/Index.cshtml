@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Estoque.Models.Movimento>
+
+@{
+    ViewBag.Title = "Movimentação";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <button class="btn default">
+            @Html.ActionLink("Nova Movimentação", "Create", "Movimentoes")
+        </button>
+        <button class="btn default">
+            @Html.ActionLink("Produtos", "Index", "Produtos")
+        </button>
+    </p>
+    <p>
+        <text>Produto</text>@Html.DropDownList("IDPRODUTO", (SelectList)ViewBag.Produtos, new { @class = "form-control" })
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QUANTIDADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATA)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QUANTIDADE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATA)
+            </td>
+            <td>
+                <button class="btn info">
+                    @Html.ActionLink("Visualizar", "Details", new { id = item.IDMOVIMENTO }, new { @class = "info" })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>

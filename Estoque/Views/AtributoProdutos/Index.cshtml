@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Estoque.Models.AtributoProduto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <button class="btn default">
+        @Html.ActionLink("Novo", "Create")
+    </button>
+    <button class="btn default">
+        @Html.ActionLink("Novo", "Create")
+    </button>
+    <button class="btn default">
+        <div><a href="@Url.Action("ImprimirRel")"> Report PDF </a></div>
+    </button>
+</p>
+@using (Html.BeginForm())
+{
+<p>
+    <text>Produto</text>@Html.DropDownList("IDPRODUTO", (SelectList)ViewBag.Produtos, new { @class = "form-control" })
+</p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VALOR)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VALOR)
+            </td>
+            <td>
+                <button class="btn warning">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IDPRODUTO, idatributo = item.IDATRIBUTO }, new { @class = "warning" })
+                </button> |
+                <button class="btn info">
+                    @Html.ActionLink("Visualizar", "Details", new { id = item.IDPRODUTO, idatributo = item.IDATRIBUTO }, new { @class = "info" })
+                </button> |
+                <button class="btn danger">
+                    @Html.ActionLink("Apagar", "Delete", new { id = item.IDPRODUTO, idatributo = item.IDATRIBUTO }, new { @class = "danger" })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>

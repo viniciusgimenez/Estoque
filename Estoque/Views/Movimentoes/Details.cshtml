@@ -1,0 +1,54 @@
+﻿@model Estoque.Models.Movimento
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Visualizar</h2>
+
+<div>
+    <h4>Movimento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTIPOMOVIMENTO)
+        </dt>
+
+        <dd>
+            @ViewBag.TipoMovimento
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPRODUTO)
+        </dt>
+
+        <dd>
+            @ViewBag.Produto
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUANTIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUANTIDADE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUSUARIO)
+        </dt>
+
+        <dd>
+            @ViewBag.Usuario
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button class="btn warning">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IDMOVIMENTO }, new { @class="warning" })
+    </button> |
+    <button class="btn default">
+        @Html.ActionLink("Voltar", "Index")
+    </button>
+</p>

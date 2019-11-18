@@ -1,0 +1,30 @@
+﻿@model Estoque.Models.Fabricante
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Visualizar</h2>
+
+<div>
+    <h4>Fabricante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button class="btn warning">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IDFABRICANTE }, new { @class = "warning" })
+    </button> |
+    <button class="btn default">
+        @Html.ActionLink("Voltar", "Index", new { @class = "default" })
+    </button>
+</p>

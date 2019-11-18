@@ -1,0 +1,62 @@
+﻿@model Estoque.Models.Usuario
+
+
+<div>
+    <div class="main">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Estoque</h1>
+                <p class="lead"></p>
+                <img src="~/img/ClaroeNET.png" class="img-responsive" width="35%" height="30%" />
+            </div>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                //cria a tag do formulário
+                @Html.AntiForgeryToken() // previne o ataque CSRF
+                @Html.ValidationSummary(true)
+                if (@ViewBag.Message != null)
+                {
+                    <div style="border:1px solid red">
+                        @ViewBag.Message
+                    </div>
+                }
+                <div class="col-sm-4">
+
+                    <h3>Log In</h3>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+                        </div>
+                    </div>
+                    <div class="login-or">
+                        <hr class="hr-or">
+                        <span class="span-or">or</span>
+                    </div>
+
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="inputUsernameEmail">Email</label>
+                            @Html.TextBoxFor(a => a.EMAIL, new { @class= "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <a class="pull-right" href="#">Forgot password?</a>
+                            <label for="inputPassword">Password</label>
+                            @Html.PasswordFor(a => a.SENHA, new { @class= "form-control" })
+                        </div>
+                        <div class="checkbox pull-right">
+                            <label>
+                                <input type="checkbox">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <button type="submit"  value="Index" class="btn btn btn-primary">
+                            Log In
+                        </button>
+                    </form>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

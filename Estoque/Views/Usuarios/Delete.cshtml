@@ -1,0 +1,66 @@
+﻿@model Estoque.Models.Usuario
+
+@{
+    ViewBag.Title = "Apagar";
+}
+
+<h2>Apagar</h2>
+
+<h3>Tem certeza que deseja apagar esse usuário?</h3>
+<div>
+    <h4>Usuário</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SENHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SENHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTIPOUSUARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTIPOUSUARIO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" value="Delete" class="btn danger">Apagar</button> |
+            <button class="btn default">
+                @Html.ActionLink("Voltar", "Index")
+            </button>
+        </div>
+    }
+</div>

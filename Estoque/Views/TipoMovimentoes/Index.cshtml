@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Estoque.Models.TipoMovimento>
+
+@{
+    ViewBag.Title = "Tipo de Movimento de Estoque";
+}
+
+<h2>Tipo de Movimento de Estoque</h2>
+
+<p>
+    <button class="btn default">
+        @Html.ActionLink("Novo", "Create")
+    </button>
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Filtro: @Html.TextBox("filtro")
+        <button type="submit" value="filtro" class="btn info">Pesquisar</button>
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRICAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENTRADA)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRICAO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ENTRADA)
+            </td>
+            <td>
+                <button class="btn warning">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IDTIPOMOVIMENTO }, new { @class = "warning" })
+                </button> |
+                <button class="btn info">
+                    @Html.ActionLink("Visualizar", "Details", new { id = item.IDTIPOMOVIMENTO }, new { @class = "info" })
+                </button> |
+                <button class="btn danger">
+                    @Html.ActionLink("Apagar", "Delete", new { id = item.IDTIPOMOVIMENTO }, new { @class = "danger" })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>

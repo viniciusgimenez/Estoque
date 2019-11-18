@@ -1,0 +1,81 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select {
+    max-width: 280px;
+}
+
+
+.login-or {
+    position: relative;
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+}
+
+.hr-or {
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+h3 {
+    text-align: center;
+    line-height: 300%;
+}
+
+.btn {
+    border: none;
+    padding: 5px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+    .btn:hover {
+        background: #eee;
+    }
+
+.success {
+    color: green;
+}
+
+.info {
+    color: dodgerblue;
+}
+
+.warning {
+    color: orange;
+}
+
+.danger {
+    color: red;
+}
+
+.default {
+    color: gold;
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Estoque.Models.Produto>
+
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<h2>Produtos</h2>
+
+<p>
+    <button class="btn default">
+        @Html.ActionLink("Novo", "Create")
+    </button>
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Filtro: @Html.TextBox("filtro")
+        <button type="submit" value="filtro" class="btn info">Pesquisar</button>
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRICAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTOQUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VALOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VALORVENDA)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRICAO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESTOQUE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VALOR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VALORVENDA)
+            </td>
+            <td>
+                <button class="btn warning">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IDPRODUTO }, new { @class = "warning" })
+                </button> |
+                <button class="btn info">
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IDPRODUTO }, new { @class = "info" })
+                </button> |
+                <button class="btn danger">
+                    @Html.ActionLink("Apagar", "Delete", new { id = item.IDPRODUTO }, new { @class = "danger" })
+                </button> |
+                <button class="btn info">
+                    @Html.ActionLink("Configuração", "Index", "AtributoProdutos", new { IDPRODUTO = item.IDPRODUTO.ToString() }, new { @class = "info" })
+                </button> |
+                <button class="btn danger">
+                    @Html.ActionLink("Movimento", "Index", "Movimentoes", new { IDPRODUTO = item.IDPRODUTO.ToString() }, new { @class = "info" })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>

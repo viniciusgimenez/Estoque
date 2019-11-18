@@ -1,0 +1,48 @@
+﻿@model Estoque.Models.AtributoProduto
+
+@{
+    ViewBag.Title = "Apagar";
+}
+
+<h2>Apagar</h2>
+
+<h3>Tem certeza que deseja apagar essa característica do produto?</h3>
+<div>
+    <h4>Característica do Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPRODUTO)
+        </dt>
+
+        <dd>
+            @ViewBag.Produto
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IDATRIBUTO)
+        </dt>
+
+        <dd>
+            @ViewBag.Atributo
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VALOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VALOR)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" value="Delete" class="btn danger">Apagar</button> |
+            <button class="btn default">
+                @Html.ActionLink("Voltar", "Index", new { IDPRODUTO = Model.IDPRODUTO });
+            </button>
+        </div>
+    }
+</div>

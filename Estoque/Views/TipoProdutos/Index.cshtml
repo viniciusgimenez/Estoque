@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Estoque.Models.TipoProduto>
+
+@{
+    ViewBag.Title = "Tipo de Produto";
+}
+
+<h2>Tipo de Produto</h2>
+
+<p>
+    <button class="btn default">
+        @Html.ActionLink("Novo", "Create")
+    </button>
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Filtro: @Html.TextBox("filtro")
+        <button type="submit" value="filtro" class="btn info">Pesquisar</button>
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRICAO)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRICAO)
+            </td>
+            <td>
+                <button class="btn warning">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IDTIPOPRODUTO }, new { @class = "warning" })
+                </button> |
+                <button class="btn info">
+                    @Html.ActionLink("Visualizar", "Details", new { id = item.IDTIPOPRODUTO }, new { @class = "info" })
+                </button>|
+                <button class="btn danger">
+                    @Html.ActionLink("Apagar", "Delete", new { id = item.IDTIPOPRODUTO }, new { @class = "danger" })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>

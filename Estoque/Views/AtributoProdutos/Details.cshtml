@@ -1,0 +1,45 @@
+﻿@model Estoque.Models.AtributoProduto
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Visualizar</h2>
+
+<div>
+    <h4>Característica do Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPRODUTO)
+        </dt>
+
+        <dd>
+            @ViewBag.Produto
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IDATRIBUTO)
+        </dt>
+
+        <dd>
+            @ViewBag.Atributo
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VALOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VALOR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button class="btn warning">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IDPRODUTO, Model.IDATRIBUTO }, new { @class = "warning" })
+    </button>|
+    <button class="btn default">
+        @Html.ActionLink("Voltar", "Index", new { IDPRODUTO = Model.IDPRODUTO });
+    </button>
+</p>

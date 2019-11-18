@@ -43,7 +43,7 @@ namespace Estoque.Controllers
         public ActionResult ImprimirRel()
         {
             dsProdutoDet dt = new dsProdutoDet();
-            SqlConnection conn = new SqlConnection("Data Source=200.98.129.93;Initial Catalog=ProjetoEstoqueLoja;Persist Security Info=True;User ID=sa;Password=cetsolucoes;MultipleActiveResultSets=True;");
+            SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ProjetoEstoqueLoja;Persist Security Info=True;User ID=net;Password=net123;MultipleActiveResultSets=True;");
             SqlCommand query = new SqlCommand();
             query.Connection = conn;
             query.CommandText = "select p.DESCRICAO as PRODUTO, FICHATECNICA, ESTOQUE, VALORVENDA, c.DESCRICAO as CATEGORIA, " +
